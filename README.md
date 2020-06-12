@@ -2,7 +2,7 @@
 # How to secure our applications using the Datawiza Access Broker 
 
 ---
-This tutorial will show you how to use the Datawiza Access Broker [DAB](https://datawiza.com/access-broker) to implement a Zero Trust architecture for your applications. We will deploy the DAB to proxy to a simple Flask application and will use Microsoft Azure Active Directory as our Identitiy Provider (IdP) to implement Single Sign on (SSO). The DAB provides a unified authentication and authorization layer which is decoupled from the application itself. It can be deployed both on-premise and on the cloud as a container. After deploying the DAB, we will also see how we can implement access control policies on a URL-level. 
+This tutorial will show you how to use the Datawiza Access Broker ([DAB](https://datawiza.com/access-broker)) to implement a Zero Trust architecture for your applications. We will deploy the DAB to proxy to a simple Flask application and will use Microsoft Azure Active Directory as our Identitiy Provider (IdP) to implement Single Sign on (SSO). The DAB provides a unified authentication and authorization layer which is decoupled from the application itself. It can be deployed both on-premise and on the cloud as a container. After deploying the DAB, we will also see how we can implement access control policies on a URL-level. 
 
 ---
 
