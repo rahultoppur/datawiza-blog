@@ -41,8 +41,8 @@ Our Flask app is serving static HTML. To see what the page looks like, first sou
 * `cd flask_app`
 * `source blog-venv/bin/activate`
 
-Then, run the application: `./app`
-When visiting `http://localhost:3001`, you should see the following image:
+Then, run the application: `./app`.
+> When visiting `http://localhost:3001`, you should see the following image:
 ![Flask App](img/flask_app.png)
 
 Eventually, once we set up the DAB to proxy to our app, we will be able to access our Flask application when visiting `http://localhost:9772`, where we should be prompted to sign with our Identity Provider (Azure Active Directory in this case).
