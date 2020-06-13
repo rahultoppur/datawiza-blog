@@ -40,6 +40,7 @@ After learning a bit more about the architecture and benefits of the Datawiza Ac
 Our Flask app is serving static HTML. To see what the page looks like, first source the virtual environment:
 * `cd flask_app`
 * `source blog-venv/bin/activate`
+
 Then, run the application: `./app`
 When visiting `http://localhost:3001`, you should see the following image:
 ![Flask App](img/flask_app.png)
