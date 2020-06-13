@@ -1,4 +1,3 @@
-ying the DAB, we w breaches by eliminating the concept of "trust" from an organi    zation completely. It relies on the notion that everything within an organization's network cannot be trusted (say, conn    ections from a VPN to a company resource). Whenever a user wants acce
 # How to secure our applications using the Datawiza Access Broker 
 
 ---
