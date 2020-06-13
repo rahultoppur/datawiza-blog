@@ -9,7 +9,7 @@ This tutorial will show you how to use the Datawiza Access Broker ([DAB](https:/
 ## Why Zero Trust?
 A Zero Trust architecture helps to prevent successful data breaches by eliminating the concept of "trust" from an organization completely. It relies on the notion that everything within an organization's network cannot be trusted (say, connections from a VPN to a company resource). Whenever a user wants access to a specific resource, we make sure we authenticate and verify every step of the way. 
 
-### DAB benefits
+### Datawiza Access Broker ([DAB](https://datawiza.com/access-broker)) benefits
 
 The DAB provides us with the ability to:
 * Enable SSO with an Identity Provider (Azure AD, Okta) automatically
