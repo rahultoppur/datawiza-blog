@@ -20,7 +20,7 @@ The DAB provides us with the ability to:
 
 ## Architecture
 The Datawiza Access Broker is an **identity-aware reverse proxy** that sits in front of our applications. Traffic reaches the DAB first, and is then proxied to our app if allowed by the access policies we have specified. The DAB is managed by a centralized, cloud-based console: Datawiza Cloud Management Console (DCMC). The DCMC allows us to manage and configure the access control policies of multiple Access Brokers--regardless of whether they are running on-premise or in the cloud. 
-![DAB deployment](./img/architecture_deployment.png)
+![DAB deployment](img/architecture_deployment.png)
 
 ### Deployment
 The DAB can be deployed in one of two modes:
@@ -43,7 +43,7 @@ Our Flask app is serving static HTML. To see what the page looks like, first sou
 * `source blog-venv/bin/activate`
 Then, run the application: `./app`
 When visiting `http://localhost:3001`, you should see the following image:
-![Flask App](./img/flask_app.png)
+![Flask App](img/flask_app.png)
 
 Eventually, once we set up the DAB to proxy to our app, we will be able to access our Flask application when visiting `http://localhost:9772`, where we should be prompted to sign with our Identity Provider (Azure Active Directory in this case).
 
