@@ -70,8 +70,12 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 * Specify a name for the `client secret`
 * Make the default 1 year
 
-> Make sure to save the **Client Secret** after successfully creating a new client secret
+> Make sure to save the **Client Secret** after successfully creating a new client secret.
 ![Client Secret](./img/client_secret.png)
+
+4. While staying in the `Demo` application we created, select `API permissions` from the side bar. `User.Read` should already be configured by default. Find and add `Group.Read.All` permissions under: `Add a permission` -> `Microsoft Graph` -> `Delegated Permissions` -> `Group` -> `Group.Read.All`. 
+* After adding `User.Read` and `Group.Read.All`, make sure both permissions are "granted" for your directory. You can specify this option by selecting the `Grant admin consent for Default Directory` button. 
+![API Permissions](./img/api_permissions.png)
 
 
 
