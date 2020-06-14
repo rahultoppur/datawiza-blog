@@ -78,6 +78,15 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 
 ![API Permissions](./img/api_permissions.png)
 
+5. Select `Authentication` from the side bar. `+ Add a platform`, and select `Web` under `Web Application`. 
+
+6. Configure `Web` with the following values:
+* Redirect URLs: `http://localhost:9772/login/oauth2/code/azure`
+* You can leave `Logout URL` with its default value
+* Make sure both `Access tokens` and `ID tokens` are allowed underneath `Implicit grant`
+
+![Configure Web](./img/configure_web.png)
+
 
 
 
