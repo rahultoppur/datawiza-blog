@@ -57,17 +57,16 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 ![Azure Tenant ID](./img/azure_tenant_id.png)
 
 ### Register our app in Azure
-2. Select `App Registrations` from the side bar and select `+ New registration`. 
-3. Create an `Application` with the following fields:
+2. Select `App Registrations` from the side bar and select `+ New registration`. Create an `Application` with the following fields:
 * Name: e.g., Demo
 * Supported account types: Accounts in this organizational directory only (Single tenant)
 * Leave other fields as their default values
 * Click `Register`
 
-> Make sure to save the **Application (client) ID** after successfully registering your Application
+> Make sure to save the **Application (client) ID** after successfully registering your Application.
 ![Application Create](./img/create_application.png)
 
-4. Making sure we are now in the application we have just created and are no longer in our `Default Directory`, select `Certificates & secrets` from the side bar. Create a new client secret by selecting `+ New client secret`. 
+3. Making sure we are now in the application we have just created and are no longer in our `Default Directory`, select `Certificates & secrets` from the side bar. Create a new client secret by selecting `+ New client secret`. 
 * Make the default 1 year
 
 > Make sure to save the **Client Secret** after successfully creating a new client secret
