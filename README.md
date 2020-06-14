@@ -104,7 +104,7 @@ Just like how we created an application on Azure AD, we need to create an applic
 * Identity Provider: `Microsoft Azure Active Directory`
 * Application Name: e.g, Demo
 
-![Create app on DCMC](./img/create_app_DCMC)
+![Create app on DCMC](./img/create_app_DCMC.png)
 
 3. Select `Web` as the platform option.
 
