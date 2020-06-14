@@ -67,6 +67,7 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 ![Application Create](./img/create_application.png)
 
 3. Making sure we are now in the application we have just created and are no longer in our `Default Directory`, select `Certificates & secrets` from the side bar. Create a new client secret by selecting `+ New client secret`. 
+* Specify a name for the `client secret`
 * Make the default 1 year
 
 > Make sure to save the **Client Secret** after successfully creating a new client secret
