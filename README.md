@@ -48,12 +48,12 @@ Eventually, once we set up the DAB to proxy to our app, we will be able to acces
 
 --- 
 
-## Part 1: Configure Microsoft Azure Active Directory
+## Part 1: Configure Microsoft [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
 We have to register an OIDC Web application on the Microsoft Azure AD portal. The three values we get from our configuration (**Tenant ID**, **Application (client) ID**, **Client Secret**) will be used for later configuration in the Datawiza Cloud Management Console (DCMC). 
 
 ### Obtain Tenant ID
 1. After registering for an account on Microsoft Azure, navigate to the Azure Active Directory tab in the menu. 
-> Note down the `Tenant ID` on your Azure AD overview portal located in the `Tenant Information` box. 
+> Make sure to save the **Tenant ID** on your Azure AD overview portal located in the `Tenant Information` box. 
 ![Azure Tenant ID](./img/azure_tenant_id.png)
 
 ### Register our app in Azure
