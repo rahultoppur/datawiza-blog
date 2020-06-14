@@ -18,7 +18,7 @@ The DAB provides us with the ability to:
 
 ## Architecture
 The Datawiza Access Broker is an **identity-aware reverse proxy** that sits in front of our applications. Traffic reaches the DAB first, and is then proxied to our app if allowed by the access policies we have specified. The DAB is managed by a centralized, cloud-based console: Datawiza Cloud Management Console (DCMC). The DCMC allows us to manage and configure the access control policies of multiple Access Brokers--regardless of whether they are running on-premise or in the cloud. 
-![DAB deployment](img/architecture_deployment.png)
+![DAB deployment](./img/architecture_deployment.png)
 
 ### Deployment
 The DAB can be deployed in one of two modes:
@@ -42,8 +42,47 @@ Our Flask app is serving static HTML. To see what the page looks like, first sou
 
 Then, run the application: `./app`.
 > When visiting `http://localhost:3001`, you should see the following image:
-![Flask App](img/flask_app.png)
+![Flask App](./img/flask_app.png)
 
 Eventually, once we set up the DAB to proxy to our app, we will be able to access our Flask application when visiting `http://localhost:9772`, where we should be prompted to sign with our Identity Provider (Azure Active Directory in this case).
 
+--- 
 
+## Part 1: Configure Microsoft Azure Active Directory
+We have to register an OIDC Web application on the Microsoft Azure AD portal. The three values we get from our configuration (**Tenant ID**, **Application (client) ID**, **Client Secret**) will be used for later configuration in the Datawiza Cloud Management Console (DCMC). 
+
+### Obtain Tenant ID
+1. After registering for an account on Microsoft Azure, navigate to the Azure Active Directory tab in the menu. 
+> Note down the `Tenant ID` on your Azure AD overview portal located in the `Tenant Information` box. 
+![Azure Tenant ID](./img/azure_tenant_id.png)
+
+### Register our app in Azure
+2. Select `App Registrations` from the side bar and select `+ New registration`. 
+3. Create an `Application` with the following fields:
+* Name: e.g., Demo
+* Supported account types: Accounts in this organizational directory only (Single tenant)
+* Leave other fields as their default values
+* Click `Register`
+Make sure to save the **Application ID** after successfully registering your Application
+![Application Create](./img/create_application.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kirk part of Federation group
+At end, have a member of klingon group try to access transporter
