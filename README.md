@@ -87,6 +87,15 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 
 ![Configure Web](./img/configure_web.png)
 
+7. Within your application, head over to the `Manifest` tab from the side bar. Ensure that the following values are both set to true:
+* `oauth2AllowIdTokenImplicitFlow: true`
+* `oauth2AllowImplicitFlow: true`
+
+--- 
+
+## Part 2: Configure the Datawiza Cloud Management Console ([DCMC](https://console.datawiza.com/login))
+
+
 
 
 
