@@ -94,9 +94,17 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 --- 
 
 ## Part 2: Configure the Datawiza Cloud Management Console ([DCMC](https://console.datawiza.com/login))
+Just like how we created an application on Azure AD, we need to create an application along with a keypair (`API key`, `API secret`) on the DCMC. This keypair is used in order for the Datawiza Access Broker to get the latest configurations and policies from the Datawiza Cloud Management Console. 
 
+### Sign In
+1. Log into the [DCMC](https://console.datawiza.com/login) with your credentials. If you need a username and password, please contact **info@datawiza.com**. 
 
+### Create an application
+2. Welcome to the DCMC homepage. Let's get started! Select the `Get started` button in the upper-right corner to create a new application integration. Create an integration with the following fields:
+* Identity Provider: `Microsoft Azure Active Directory`
+* Application Name: e.g, Demo
 
+![Create app on DCMC](./img/create_app_DCMC)
 
 
 
