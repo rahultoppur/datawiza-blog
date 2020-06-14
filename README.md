@@ -75,6 +75,7 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 
 4. While staying in the `Demo` application we created, select `API permissions` from the side bar. `User.Read` should already be configured by default. Find and add `Group.Read.All` permissions under: `Add a permission` -> `Microsoft Graph` -> `Delegated Permissions` -> `Group` -> `Group.Read.All`. 
 * After adding `User.Read` and `Group.Read.All`, make sure both permissions are "granted" for your directory. You can specify this option by selecting the `Grant admin consent for Default Directory` button. 
+
 ![API Permissions](./img/api_permissions.png)
 
 
