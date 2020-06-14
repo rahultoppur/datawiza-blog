@@ -63,8 +63,15 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 * Supported account types: Accounts in this organizational directory only (Single tenant)
 * Leave other fields as their default values
 * Click `Register`
-Make sure to save the **Application ID** after successfully registering your Application
+
+> Make sure to save the **Application (client) ID** after successfully registering your Application
 ![Application Create](./img/create_application.png)
+
+4. Making sure we are now in the application we have just created and are no longer in our `Default Directory`, select `Certificates & secrets` from the side bar. Create a new client secret by selecting `+ New client secret`. 
+* Make the default 1 year
+
+> Make sure to save the **Client Secret** after successfully creating a new client secret
+![Client Secret](./img/client_secret.png)
 
 
 
