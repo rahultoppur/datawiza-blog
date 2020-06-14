@@ -106,6 +106,10 @@ Just like how we created an application on Azure AD, we need to create an applic
 
 ![Create app on DCMC](./img/create_app_DCMC)
 
+3. Select `Web` as the platform option.
+
+### Configure app settings
+
 
 
 
