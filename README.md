@@ -44,10 +44,19 @@ We will need this when we try to pull the docker image containing the DAB.
 
 Next, let's download docker-compose. Refer [here](https://docs.docker.com/compose/install/) for installation instructions. 
 
+Finally, check that both installations were successful by doing:
+```
+docker --version
+docker-compose --version
+```
+If both commands show version and build numbers, you are good to go!
+
 ## Part 1: A quick look at our Flask App
 Our Flask app is serving static HTML. To see what the page looks like, first source the virtual environment:
-* `cd flask_app`
-* `source blog-venv/bin/activate`
+```
+`cd flask_app`
+`source blog-venv/bin/activate`
+```
 
 Then, run the application: `./app`.
 > When visiting `http://localhost:3001`, you should see the following image:
@@ -141,6 +150,7 @@ Just like how we created an application on Azure AD, we need to create an applic
 
 ## Part 4: Run Datawiza Access Broker with our Flask App
 After setting up our configuration with Azure AD and the DCMC, we are finally ready to deploy the DAB alongside our Flask application and implement granular access control. Make sure you have installed the dependencies mentioned in Part 0. 
+
 
 
 ---
