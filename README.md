@@ -185,6 +185,7 @@ you will need to add your current user to the docker group using the `groupadd` 
 * `CONNECTOR_NAME` specifies the Identity Provider you configured in Step 1. 
     * `aad` -> Azure Active Directory
     * `okta.oidc` -> Okta
+* `"9772:9772"` maps the docker host's port `9772` to the container's port `9772`. 
 
 ---
 
