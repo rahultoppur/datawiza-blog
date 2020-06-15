@@ -29,7 +29,7 @@ The DAB can be deployed in one of two modes:
 
 ## Preview
 After learning a bit more about the architecture and benefits of the Datawiza Access Broker, let's see it in action for ourselves. In this tutorial, we will use the DAB to enable both SSO and granular access control for a simple Flask application serving static HTML. The Identity Provider we will use is Azure Active Directory. 
-* Our Flask application will run on `localhost:3001`
+* Our Flask application will run on our local `eth0` local interface. In this example, `192.168.0.80:3001`.
 * The DAB will run on `localhost:9772`. The traffic to our app will reach the DAB first, and then be proxied to our application. 
 * The docker image for both the DAB and sample Flask application will be provided.
  
@@ -59,7 +59,7 @@ Our Flask app is serving static HTML. To see what the page looks like, first sou
 ```
 
 Then, run the application: `./app`.
-> When visiting `http://localhost:3001`, you should see the following image:
+> When visiting `http://192.168.0.80:3001`, you should see the following image:
 ![Flask App](./img/flask_app.png)
 
 Eventually, once we set up the DAB to proxy to our app, we will be able to access our Flask application when visiting `http://localhost:9772`, where we should be prompted to sign with our Identity Provider (Azure Active Directory in this case).
@@ -132,8 +132,7 @@ Just like how we created an application on Azure AD, we need to create an applic
 * Copy and paste the previous saved values from the Azure AD configuration (Part 1) for the **Application (client) ID**, **Client Secret**, and **Tenant ID**
 * `Upstream Server`: (see below)
     * Is the address of the application that you want to enable SSO for
-    * If you are using the DAB in sidecar mode and the Flask application is running on `http://localhost:3001`, set the upstream server to `host.docker.internal:3001` if on Mac or Windows.  
-    * If you are running the application on a Linux machine, use `ip addr show docker0` to get the docker host IP. Then set the upstream server to `172.17.0.1:3001` (see [this](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach) for more details). 
+    * If you are using the DAB in sidecar mode and the Flask application is running on `http://192.168.0.80:3001`, set the upstream server to `http://192.168.0.80:3001` (address of our Flask app). 
 * Then select `Create`
 
 ![Application Config](./img/app_config.png)
