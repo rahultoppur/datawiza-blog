@@ -118,7 +118,7 @@ Just like how we created an application on Azure AD, we need to create an applic
     * If you are running the application on a Linux machine, use `ip addr show docker0` to get the docker host IP. Then set the upstream server to `172.17.0.1:3001` (see [this](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach) for more details). 
 * Then select `Create`
 
-
+![Application Config](./img/app_config.png)
 
 
 
