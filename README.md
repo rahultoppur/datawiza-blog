@@ -120,8 +120,14 @@ Just like how we created an application on Azure AD, we need to create an applic
 
 ![Application Config](./img/app_config.png)
 
+### Generate API keypair on DCMC
+1. Return to the `Application` tab and select `API Token` to generate a keypair. Select `Create API Key`. 
+    * Give your API Key a name
+    * Select the expiry time to be `1 month later`
 
+![API key](./img/API_key.png)
 
+2. Make a note of your newly created keypair (**API Key**, **API Secret**). This will be needed when we run the DAB. 
 
 
 
