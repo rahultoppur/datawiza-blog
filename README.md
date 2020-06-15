@@ -151,7 +151,36 @@ Just like how we created an application on Azure AD, we need to create an applic
 ## Part 4: Run Datawiza Access Broker with our Flask App
 After setting up our configuration with Azure AD and the DCMC, we are finally ready to deploy the DAB alongside our Flask application and implement granular access control. Make sure you have installed the dependencies mentioned in Part 0. 
 
+Create the following file named `docker-compose.yml`:
+```
+version: '3'
 
+services:
+  datawiza-access-broker:
+    image:registry.gitlab.com/datawiza/access-broker:1.2.6
+    container_name: datawiza-access-broker
+    restart: always
+    ports:
+      -"9772:9772"
+    environment:
+      MGMT_API_KEY: replace-with-API-Key-from-DCMC
+      MGMT_API_SECRET: replace-with-API-Secret-from-DCMC
+      CONNECTOR_NAME: aad
+```
+
+After creating `docker-compose.yml`, run `docker login registry.gitlab.com -u datawiza-deploy-token -p ######` to login to the container registry. If you don't have the deploy token, make sure to contact **info@datawizacom**.
+
+Now, run `docker-compose -f docker-compose.yml up`. If you get the following error:
+```
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json: dial unix /var/run/docker.sock: connect: permission denied
+```
+you will need to add your current user to the docker group using the `groupadd` and `usermod` commands. Follow the instructions [here](https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket).
+
+If everything looks good now, you should be all set with the DAB.
+
+### Things to keep in mind:
+* Make sure your `docker-compose.yml` file does not contain any tabs. They arent allowed in [YAML](https://yaml.org/faq.html)
+* 
 
 ---
 
