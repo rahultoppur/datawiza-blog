@@ -100,8 +100,8 @@ Just like how we created an application on Azure AD, we need to create an applic
 1. Log into the [DCMC](https://console.datawiza.com/login) with your credentials. If you need a username and password, please contact **info@datawiza.com**. 
 
 ### Create an application
-2. Welcome to the DCMC homepage. Let's get started! Select the `Get started` button in the upper-right corner to create a new application integration. Create an integration with the following fields:
-* Identity Provider: `Microsoft Azure Active Directory`
+2. Welcome to the DCMC homepage! Let's get started! Select the `Get started` button in the upper-right corner to create a new application integration. Create an integration with the following fields:
+* Identity Provider: Microsoft Azure Active Directory
 * Application Name: e.g, Demo
 
 ![Create app on DCMC](./img/create_app_DCMC.png)
@@ -109,6 +109,14 @@ Just like how we created an application on Azure AD, we need to create an applic
 3. Select `Web` as the platform option.
 
 ### Configure app settings
+4. Configure the applications settings with the following values:
+* `Public Domain`: `http://localhost:9772`. Make sure to use `http` instead of `https`. 
+* Copy and paste the previous saved values from the Azure AD configuration (Part 1) for the **Application (client) ID**, **Client Secret**, and **Tenant ID**
+* `Upstream Server`: (see below)
+    * Is the address of the application that you want to enable SSO for
+    * If you are using the DAB in sidecar mode and the Flask application is running on `http://localhost:3001`, set the upstream server to `host.docker.internal:3001` if on Mac or Windows.  
+    * If you are running the application on a Linux machine, use `ip addr show docker0` to get the docker host IP. Then set the upstream server to `172.17.0.1:3001` (see [this](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach) for more details). 
+* Then select `Create`
 
 
 
