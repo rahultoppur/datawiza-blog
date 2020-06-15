@@ -170,7 +170,7 @@ services:
 
 After creating `docker-compose.yml`, run `docker login registry.gitlab.com -u datawiza-deploy-token -p ######` to login to the container registry. If you don't have the deploy token, make sure to contact **info@datawizacom**.
 
-Now, run `docker-compose -f docker-compose.yml up`. 
+Now, run `docker-compose -f docker-compose.yml up` (making sure you are in the same directory as your .yml file). 
 
 If everything looks good, you should be all set with the DAB.
 
@@ -187,9 +187,9 @@ you will need to add your current user to the docker group using the `groupadd` 
     * `okta.oidc` -> Okta
 * `"9772:9772"` maps the docker host's port `9772` to the container's port `9772`. 
 
+## Visiting localhost:9772
+
 ---
-
-
 
 
 
