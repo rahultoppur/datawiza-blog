@@ -170,17 +170,21 @@ services:
 
 After creating `docker-compose.yml`, run `docker login registry.gitlab.com -u datawiza-deploy-token -p ######` to login to the container registry. If you don't have the deploy token, make sure to contact **info@datawizacom**.
 
-Now, run `docker-compose -f docker-compose.yml up`. If you get the following error:
+Now, run `docker-compose -f docker-compose.yml up`. 
+
+If everything looks good, you should be all set with the DAB.
+
+### Things to keep in mind:
+* Make sure your `docker-compose.yml` file does not contain any tabs. They arent allowed in [YAML](https://yaml.org/faq.html)
+* If you get the following error when running `docker-compose`:
 ```
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/json: dial unix /var/run/docker.sock: connect: permission denied
 ```
 you will need to add your current user to the docker group using the `groupadd` and `usermod` commands. Follow the instructions [here](https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket).
 
-If everything looks good now, you should be all set with the DAB.
-
-### Things to keep in mind:
-* Make sure your `docker-compose.yml` file does not contain any tabs. They arent allowed in [YAML](https://yaml.org/faq.html)
-* 
+* `CONNECTOR_NAME` specifies the Identity Provider you configured in Step 1. 
+    * `aad` -> Azure Active Directory
+    * `okta.oidc` -> Okta
 
 ---
 
