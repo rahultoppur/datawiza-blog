@@ -186,7 +186,14 @@ you will need to add your current user to the docker group using the `groupadd` 
     * `okta.oidc` -> Okta
 * `"9772:9772"` maps the docker host's port `9772` to the container's port `9772`. 
 
-## Visiting localhost:9772
+### Visiting localhost:9772
+Now, when we visit `http://localhost:9772`, we should be prompted to sign in with our credentials to Microsoft Azure Directory. Note that you may need to sign out of Azure AD if you are already logged in to see this page.
+
+![Azure AD login](./img/azure_ad_login)
+
+If you are seeing the Azure AD login page but are unable to login (Microsoft keeps asking for your username and password repeatedly), ensure that you have created a user for your AD domain. Logging in with the root account will not work. Your username should be in the form of `user@example-domain.onmicrosoft.com`.
+
+You can create a `User` by going to your directory home page, and selecting `Users` underneath the `Manage` tab in the left-hand menu. Select `+ New user`, and give a `User name`. After creating a user, you should be able to login with your new set of credentials under your domain. 
 
 ---
 
