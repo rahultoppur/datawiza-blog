@@ -35,7 +35,16 @@ After learning a bit more about the architecture and benefits of the Datawiza Ac
  
 ---
 
-## Part 0: A quick look at our Flask app
+## Part 0: Installing prerequisites
+We deploy the DAB as we would any other reverse-proxy, such as NGINX. In this tutorial, we will use `docker-compose` to run the access broker. Let's take care of these prerequisites by installing them now. 
+
+Let's first install docker. Refer [here](https://docs.docker.com/get-docker/) regarding operating systems specific instructions. In a Linux environment, we can run `wget -qO- https://test.docker.com/ | sh` to install our docker dependency. 
+
+We will need this when we try to pull the docker image containing the DAB. 
+
+Next, let's download docker-compose. Refer [here](https://docs.docker.com/compose/install/) for installation instructions. 
+
+## Part 1: A quick look at our Flask App
 Our Flask app is serving static HTML. To see what the page looks like, first source the virtual environment:
 * `cd flask_app`
 * `source blog-venv/bin/activate`
@@ -48,7 +57,7 @@ Eventually, once we set up the DAB to proxy to our app, we will be able to acces
 
 --- 
 
-## Part 1: Configure Microsoft [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
+## Part 2: Configure Microsoft [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
 We have to register an OIDC Web application on the Microsoft Azure AD portal. The three values we get from our configuration (**Tenant ID**, **Application (client) ID**, **Client Secret**) will be used for later configuration in the Datawiza Cloud Management Console (DCMC). 
 
 ### Obtain Tenant ID
@@ -93,7 +102,7 @@ We have to register an OIDC Web application on the Microsoft Azure AD portal. Th
 
 --- 
 
-## Part 2: Configure the Datawiza Cloud Management Console ([DCMC](https://console.datawiza.com/login))
+## Part 3: Configure the Datawiza Cloud Management Console ([DCMC](https://console.datawiza.com/login))
 Just like how we created an application on Azure AD, we need to create an application along with a keypair (`API key`, `API secret`) on the DCMC. This keypair is used in order for the Datawiza Access Broker to get the latest configurations and policies from the Datawiza Cloud Management Console. 
 
 ### Sign In
@@ -128,10 +137,13 @@ Just like how we created an application on Azure AD, we need to create an applic
 
 ![API key](./img/API_key.png)
 
+---
+
+## Part 4: Run Datawiza Access Broker with our Flask App
+After setting up our configuration with Azure AD and the DCMC, we are finally ready to deploy the DAB alongside our Flask application and implement granular access control. Make sure you have installed the dependencies mentioned in Part 0. 
 
 
-
-
+---
 
 
 
