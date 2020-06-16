@@ -251,4 +251,6 @@ In this tutorial, we covered the basics of using the Datawiza Access Broker to s
 2. Configuring the DCMC
 3. Running the DAB with our application 
 4. Setting up Access Control Policies
-I hope this tutorial has given you a taste of what Zero Trust is all about, and how both the DAB and DCMC make adapting this architecture to your applications a seamless experience. Please refer to `docs.datawiza.com` for further documentation and details on the Datawiza Access Broker. 
+
+I hope this tutorial has given you a taste of what Zero Trust is all about, and how both the DAB and DCMC make adapting this architecture to your applications a seamless experience. Please refer to [`docs.datawiza.com`](docs.datawiza.com) for further documentation and details on the Datawiza Access Broker. 
+
