@@ -245,6 +245,8 @@ When we visit `http://localhost:9772/federation`, we are greeted with the follow
 
 Sucess! It worked!
 
+---
+
 ## Part 6: Summary
 In this tutorial, we covered the basics of using the Datawiza Access Broker to secure our applications. We covered the major steps of accomplishing this integration, including:
 1. Configuring your identity provider
