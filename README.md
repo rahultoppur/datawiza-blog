@@ -191,7 +191,7 @@ When we visit `http://localhost:9772`, we should be prompted to sign in with our
 
 If you are seeing the Azure AD login page but are unable to login (Microsoft keeps asking for your username and password repeatedly), ensure that you have created a user for your AD domain. Logging in with the root account will not work. Your username should be in the form of `user@example-domain.onmicrosoft.com`.
 
-You can create a `User` by going to your directory home page, and selecting `Users` underneath the `Manage` tab in the left-hand menu. Select `+ New user`, and give a `User name`. After creating a user, you should be able to login with your new set of credentials under your domain. 
+* You can create a `User` by going to your directory home page, and selecting `Users` underneath the `Manage` tab in the left-hand menu. Select `+ New user`, and give a `User name`. After creating a user, you should be able to login with your new set of credentials under your domain. 
 
 At this point, we have been able to enable SSO with our IdP! In the next portion of this tutorial, we'll take a look at implementing Granular Access Control based on a user's attributes and other possible metadata of a request.
 
@@ -201,15 +201,15 @@ At this point, we have been able to enable SSO with our IdP! In the next portion
 
 In this section, we are going to implement a simple form of granular access control with a resource. Through the Datawiza Cloud Management Console, access policies for multiple apps can be deployed in multiple environments (some in AWS, Azure Cloud, GCP, etc.) and others that are on-premise. We can configure our access control based on user attributes, such as their group in Azure AD or other metadata (URL, access time, etc.). 
 
-Let's observe this in action. Right now, when accessing our Flask app, we are instantly granted access to the home page and see a picture of Spock and Dr.McCoy. Let's add another URL to our Flask app, which will be represented by the `app.route` of `/federation` in our Flask app. 
+Let's observe this in action. Right now, when accessing our Flask app, we are instantly granted access to the home page and see a picture of Mr. Spock, Scotty, and Dr. McCoy. If you take a look at the source code for `flask_app/app`, you will see a route for `federation`. We will use this as our special "resource," and only grant access to it for certain users. 
 
 ### Add user on Azure AD
-1. We will first create a `user` in Azure Active Directory. In your default directory, select `Users` from the left side bar. Select `+ New user`, and provide a username and password. We'll call our user James Kirk. Then, select `Create`. 
+1. We will first create a `User` in Azure Active Directory. In your default directory, select `Users` from the left side bar. Select `+ New user`, and provide a username and password. We'll call our user James Kirk. Then, select `Create`. 
 
 ![Add user Azure AD](./img/add_user.png)
 
 ### Assign Kirk to the Federation
-2. Next, we will create a `group` in Azure Active Directory. Navigate back to your default directory, and select `Groups` from the left side bar. Select `+ New group`, and provide a name. We'll call our group `Federation`. 
+2. Next, we will create a `Group` in Azure Active Directory. Navigate back to your default directory, and select `Groups` from the left side bar. Select `+ New group`, and provide a name. We'll call our group `Federation`. 
 
 3. Underneath the `Members` menu, go ahead and assign `James Kirk` to our new group, `Federation`. Then, leaving the other values as their defaults, select `Create`.  
 
@@ -232,6 +232,7 @@ Now, let's visit `http://localhost:9772`, and log in with our original user.
 ![Rahul login](./img/rahul_login.png)
 
 Now, when accessing `http://localhost:9772/federation`, we should see the following:
+
 ![Failed access](./img/fail.png)
 
 Let's repeat the process, but this time using James Kirk's account to login to Azure AD. 
