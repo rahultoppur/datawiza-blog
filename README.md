@@ -189,7 +189,7 @@ you will need to add your current user to the docker group using the `groupadd` 
 ### Visiting localhost:9772
 Now, when we visit `http://localhost:9772`, we should be prompted to sign in with our credentials to Microsoft Azure Directory. Note that you may need to sign out of Azure AD if you are already logged in to see this page.
 
-![Azure AD login](./img/azure_ad_login)
+![Azure AD login](./img/azure_ad_login.png)
 
 If you are seeing the Azure AD login page but are unable to login (Microsoft keeps asking for your username and password repeatedly), ensure that you have created a user for your AD domain. Logging in with the root account will not work. Your username should be in the form of `user@example-domain.onmicrosoft.com`.
 
