@@ -217,7 +217,7 @@ Let's observe this in action. Right now, when accessing our Flask app, we are in
 
 ### Configure rule on DCMC
 Ideally, we only want users in the `Federation` group to be able to access our Flask resource (the `/federation` URL). We now need to configure a rule on the DCMC to reflect this. Navigate back to the [DCMC](console.datawiza.com), and select `Application`. Select the gear icon for your application to configure rules. Select the `Create Rule` option in the upper-left corner. Configure the rule as follows:
-* Change the `All requests if do not match below rules` to `Deny` in the upper-right corner. We want to make sure that if an authentication request is not approved, we should deny access to the request. We should only allow access to our resource if our conditions are met. 
+* Change the `All requests if do not match below rules` to `Deny` in the upper-right corner. We want to make sure that if an authentication request is not approved, we should deny access to the request. We should  allow access to our resource only if our conditions are met. 
 * Resource Path: The path to our resource is `/federation`, as described on line 13 of our Flask app
     * ``` @app.route('/federation') ```
 * Priority: A lower number indicates a higher priority. 
