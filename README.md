@@ -60,7 +60,7 @@ Our Flask app is serving static HTML. To see what the page looks like, first sou
 
 Then, run the application: `./app`.
 > When visiting `http://192.168.0.80:3001`, you should see the following image:
-![Flask App](./img/flask_app.png)
+![Flask App](./img/flask.png)
 
 Eventually, once we set up the DAB to proxy to our app, we will be able to access our Flask application when visiting `http://localhost:9772`, where we should be prompted to sign with our Identity Provider (Azure Active Directory in this case).
 
@@ -195,12 +195,49 @@ If you are seeing the Azure AD login page but are unable to login (Microsoft kee
 
 You can create a `User` by going to your directory home page, and selecting `Users` underneath the `Manage` tab in the left-hand menu. Select `+ New user`, and give a `User name`. After creating a user, you should be able to login with your new set of credentials under your domain. 
 
+At this point, we have been able to enable SSO with our IdP! In the next portion of this tutorial, we'll take a look at implementing Granular Access Control based on a user's attributes and other possible metadata of a request.
+
 ---
 
+## Part 5: Implement Granular Access Control
 
+In this section, we are going to implement a simple form of granular access control with a resource. Through the Datawiza Cloud Management Console, access policies for multiple apps can be deployed in multiple environments (some in AWS, Azure Cloud, GCP, etc.) and others that are on-premise. We can configure our access control based on user attributes, such as their group in Azure AD or other metadata (URL, access time, etc.). 
 
+Let's observe this in action. Right now, when accessing our Flask app, we are instantly granted access to the home page and see a picture of Spock and Dr.McCoy. Let's add another URL to our Flask app, which will be represented by the `app.route` of `/federation`. Observe line 13 in `flask_app/app`. 
 
+### Add user on Azure AD
+We will first create a `user` in Azure Active Directory. In your default directory, select `Users` from the left side bar. Select `+ New user`, and provide a username and password. We'll call our user James Kirk. Then, select `Create`. 
 
+[picture here]
 
-Kirk part of Federation group
-At end, have a member of klingon group try to access transporter
+### Assign Kirk to the Federation
+Next, we will create a `group` in Azure Active Directory. Navigate back to your default directory, and select `Groups` from the left side bar. Select `+ New group`, and provide a name. We'll call our group `Federation`. 
+
+Underneath the `Members` menu, go ahead and assign `James Kirk` to our new group, `Federation`. Then, leaving the other values as their defaults, select `Create`.  
+
+[picture here]
+
+### Configure rule on DCMC
+Ideally, we only want users in the `Federation` group to be able to access our Flask resource (the `/federation` URL). We now need to configure a rule on the DCMC to reflect this. Navigate back to the [DCMC](console.datawiza.com), and select `Application`. Select the gear icon for your application to configure rules. Select the `Create Rule` option in the upper-left corner. Configure the rule as follows:
+* Resource Path: The path to our resource is `/federation`, as described on line 13 of our Flask app
+    * ``` @app.route('/federation') ```
+* Priority: A lower number indicates a higher priority. 
+* Rule Type: We want to make sure we authenticate the request to our resource
+* Rule Decision: The decision reached when the conditions are met.
+* Conditions: Only allow members of the `Federation` group in Azure to gain access to our resource
+
+### Test it out!
+Now, let's visit `http://localhost:9772`. Logging in with our original user, we should see the following page when trying to access `http://localhost:9772/federation`. 
+[picture here]
+
+Let's repeat the process, but this time using James Kirk's account to login to Azure AD. When we visit `http://localhost:9772/federation`, we are greeted with the following picture:
+
+Sucess! It worked!
+
+## Part 6: Summary
+In this tutorial, we covered the basics of using the Datawiza Access Broker to secure our applications. We covered the major steps of accomplishing this integration, including:
+1. Configuring your identity provider
+2. Configuring the DCMC
+3. Running the DAB with our application 
+4. Setting up Access Control Policies
+I hope this tutorial has given you a taste of what Zero Trust is all about, and how both the DAB and DCMC make adapting this architecture to your applications a seamless experience. Please refer to `docs.datawiza.com` for further documentation and details on the Datawiza Access Broker. 
