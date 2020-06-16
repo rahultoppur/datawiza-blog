@@ -232,7 +232,7 @@ Now, let's visit `http://localhost:9772`, and log in with our original user.
 ![Rahul login](./img/rahul_login.png)
 
 Now, when accessing `http://localhost:9772/federation`, we should see the following:
-
+> Remember that only James Kirk has access to the `/federation` resource!
 ![Failed access](./img/fail.png)
 
 Let's repeat the process, but this time using James Kirk's account to login to Azure AD. 
