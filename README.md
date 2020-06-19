@@ -185,7 +185,7 @@ you will need to add your current user to the docker group using the `groupadd` 
 * `"9772:9772"` maps the docker host's port `9772` to the container's port `9772`. 
 
 ### Visiting `localhost:9772`
-When we visit `http://localhost:9772`, we should be prompted to sign in with our credentials to Microsoft Azure Directory. Note that you may need to sign out of Azure AD if you are already logged in to see this page.
+When we visit `http://localhost:9772`, we should be prompted to sign in with our credentials to Microsoft Azure Active Directory. Note that you may need to sign out of Azure AD if you are already logged in to see this page.
 
 ![Azure AD login](./img/azure_ad_login.png)
 
